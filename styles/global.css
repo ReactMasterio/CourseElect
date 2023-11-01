@@ -1,0 +1,10 @@
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  @apply rounded-lg bg-[#060912];
+  direction: rtl;
+}

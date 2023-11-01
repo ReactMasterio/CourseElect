@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "mochiy";
+  src: url("/public/fonts/Mochiy.woff") format("woff");
+}
+
+.header {
+  @apply rounded-md border border-solid border-opacity-10 border-white bg-opacity-5 shadow-md backdrop-filter backdrop-blur-lg px-2 py-5 text-white;
+  @apply flex justify-between relative align-middle text-center;
+}
+
+.header::before {
+  content: " ";
+  width: 282.058px;
+  height: 356.359px;
+  flex-shrink: 0;
+  background-color: rgba(43, 68, 135, 0.42);
+  filter: blur(60.5px);
+  position: absolute;
+  top: -25%;
+  right: -18%;
+}
+.user_logo {
+  @apply w-12;
+}
+
+.header_title {
+  font-family: "mochiy";
+  font-weight: bold;
+}
+.span {
+  color: #5983fc;
+}
