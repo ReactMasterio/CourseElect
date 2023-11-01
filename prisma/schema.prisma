@@ -6,3 +6,37 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+
+model course {
+  CID          BigInt  @id @unique(map: "CID") @default(autoincrement()) @db.UnsignedBigInt
+  CTitle       String  @unique(map: "CTitle") @db.VarChar(100)
+  CDescription Json?
+  CPrice       Decimal @db.Decimal(10, 2)
+  CTime        String? @db.VarChar(50)
+  CLikes       Int?    @default(0)
+  CDislikes    Int?    @default(0)
+  CTeacherName String? @db.VarChar(50)
+  CVotes       Int?    @default(0)
+  votes        votes?
+}
+
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model users {
+  UID          String  @id @unique(map: "UID") @db.VarChar(14)
+  UFirstname   String? @db.VarChar(100)
+  ULastname    String? @db.VarChar(100)
+  Username     String  @db.VarChar(255)
+  Password     String  @db.VarChar(255)
+  UEmail       String? @db.VarChar(100)
+  URole        String? @db.VarChar(20)
+  USSN         String? @unique(map: "USSN") @db.VarChar(10)
+  UPhoneNumber String? @db.VarChar(15)
+}
+
+model votes {
+  CID    BigInt @id @unique(map: "CID") @default(autoincrement()) @db.UnsignedBigInt
+  CVotes Int?
+  course course @relation(fields: [CID], references: [CID], onDelete: NoAction, onUpdate: NoAction, map: "votes_ibfk_1")
+}
