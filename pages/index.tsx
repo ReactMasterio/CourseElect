@@ -9,7 +9,7 @@ const onFinish = (values: any) => {
   console.log("Success:", values);
 };
 
-const login = () => {
+const login = (props) => {
 
   const [form] = Form.useForm();
 
