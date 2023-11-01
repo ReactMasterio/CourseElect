@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import Link from "next/link";
 
 
-const login = () => {
+const SignIn = () => {
 
   const [form] = Form.useForm();
   const router = useRouter();
@@ -121,4 +121,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default SignIn;
