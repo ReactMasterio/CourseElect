@@ -12,48 +12,49 @@ const onFinish = (values: any) => {
 const login = () => {
 
   const [form] = Form.useForm();
-  const [clientReady, setClientReady] = useState<boolean>(false);
 
 
   return (
     <>
       <div className={styles.bg}>
+
+
+
+
         <Form form={form} name="horizontal_login" layout="vertical" onFinish={onFinish} className={styles.form_bg}>
+          <h2 className={styles.header_title}>
+            Course<span className={styles.span}>E</span>lect
+          </h2>
           <Form.Item
             name="username"
             className={styles.form_item}
-            rules={[{ required: true, message: 'Please input your username!' }]}
+            validateTrigger="onBlur"
+            rules={[{ required: true, message: 'لطفا نام کاربری خود را وارد نمایید!' }]}
           >
-            <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username"
+            <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="نام کاربری"
               size="large" />
           </Form.Item>
           <Form.Item
             name="password"
             className={styles.form_item}
-            rules={[{ required: true, message: 'Please input your password!' }]}
+            validateTrigger="onBlur"
+            rules={[{ required: true, message: 'لطفا رمز ورود خود را وارد نمایید!' }]}
           >
             <Input
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
-              placeholder="Password"
+              placeholder="رمز ورود"
               size="large"
             />
           </Form.Item>
           <Form.Item shouldUpdate className={styles.form_item}>
-            {() => (
-              <Button
-                type="primary"
-                htmlType="submit"
-                className={styles.form_btn}
-                disabled={
-                  !clientReady ||
-                  !form.isFieldsTouched(true) ||
-                  !!form.getFieldsError().filter(({ errors }) => errors.length).length
-                }
-              >
-                ورود
-              </Button>
-            )}
+            <Button
+              type="primary"
+              htmlType="submit"
+              className={styles.form_btn}
+            >
+              ورود
+            </Button>
           </Form.Item>
         </Form>
       </div>
