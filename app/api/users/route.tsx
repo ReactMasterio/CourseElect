@@ -9,3 +9,6 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({ error: "مشکلی هنگام ارتباط با سرور به وجود آمد." }, { status: 500 })
     }
 }
+
+
+export async function POST(request:NextRequest){}
