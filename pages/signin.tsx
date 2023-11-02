@@ -26,8 +26,44 @@ const SignIn = () => {
     console.log("Success:", values);
 
     const reqBody = {
-      username: values.username,
-      password: values.password
+      UID: values.UID,
+      UFirstname: values.UFirstname,
+      ULastname: values.ULastname,
+      Username: values.Username,
+      Password: values.Password,
+      UEmail: values.UEmail,
+      URole: "user",
+      USSN: values.USSN,
+      UPhoneNumber: values.UPhoneNumber,
+    }
+
+    try {
+      const response = await axios.post(`/api/auth/signin`, reqBody);
+
+      if (response.status == 400) {
+        notification.error({
+          message: "Error",
+          description: "Make sure to compelete all the fields"
+        })
+      } else if (response.status == 403) {
+        console.log(response);
+
+      } else if (response.status == 201) {
+        notification.success({
+          message: "Welcome",
+          description: "Welcome to Our Family"
+        })
+        setTimeout(() => {
+          router.push(`/`)
+        }, 2000)
+
+      }
+    } catch (error) {
+      notification.error({
+        message: "Error",
+        description: "Contact the Suport Team"
+      })
+
     }
 
 
@@ -158,7 +194,7 @@ const SignIn = () => {
 
 
           <Form.Item
-            name="username"
+            name="Username"
             className={styles.form_item}
             validateTrigger="onBlur"
             rules={[{ required: true, message: 'لطفا نام کاربری خود را وارد نمایید!' }]}
@@ -169,7 +205,7 @@ const SignIn = () => {
 
 
           <Form.Item
-            name="password"
+            name="Password"
             className={styles.form_item}
             validateTrigger="onBlur"
             rules={[{ required: true, message: 'لطفا رمز ورود خود را وارد نمایید!' }]}
@@ -193,9 +229,10 @@ const SignIn = () => {
             <Button
               type="primary"
               htmlType="submit"
+              size="large"
               className={styles.form_btn}
             >
-              ورود
+              ثبت نام
             </Button>
           </Form.Item>
         </Form>

@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
     });
 
     if (user) {
-        return NextResponse.json({ error: `User with USSN : ${USSN} Already Exist` });
+        return NextResponse.json({ error: `User with USSN : ${USSN} Already Exist` }, { status: 403 });
     }
 
     const UIDExist = await prisma.users.findFirst({
@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
     });
 
     if (UIDExist) {
-        return NextResponse.json({ error: `User with UID : ${UID} Already Exist` });
+        return NextResponse.json({ error: `User with UID : ${UID} Already Exist` }, { status: 403 });
     }
 
     const UsernameExist = await prisma.users.findFirst({
@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
     });
 
     if (UsernameExist) {
-        return NextResponse.json({ error: `User with Username : ${Username} Already Exist` });
+        return NextResponse.json({ error: `User with Username : ${Username} Already Exist` }, { status: 403 });
     }
 
 
@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
     });
 
     if (EmailExist) {
-        return NextResponse.json({ error: `User with Email : ${UEmail} Already Exist` });
+        return NextResponse.json({ error: `User with Email : ${UEmail} Already Exist` }, { status: 403 });
     }
 
 

@@ -110,6 +110,7 @@ const login = () => {
             <Button
               type="primary"
               htmlType="submit"
+              size="large"
               className={styles.form_btn}
             >
               ورود
