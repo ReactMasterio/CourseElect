@@ -1,0 +1,46 @@
+@font-face {
+    font-family: "mochiy";
+    src: url("/public/fonts/Mochiy.woff") format("woff");
+  }
+  
+  .bg {
+    @apply flex flex-col justify-center align-middle text-center sm:flex-row sm:relative;
+    background-image: url("../../public/images/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .form_bg {
+    @apply px-4 py-5 m-2 rounded-md border border-solid border-white border-opacity-10 bg-black bg-opacity-20 shadow-md backdrop-blur-md;
+    backdrop-filter: blur(50px);
+    @apply sm:m-0 sm:absolute sm:top-0 sm:right-0 sm:w-2/4 sm:h-screen sm:py-5 sm:flex sm:flex-col sm:justify-center sm:items-center;
+  }
+  .form_item {
+    @apply my-10 text-white placeholder:text-white w-full sm:my-3 md:w-11/12 lg:w-10/12 lg:my-5 text-right;
+  }
+  
+  .form_input {
+    @apply rounded-md border border-solid border-white border-opacity-10 bg-black bg-opacity-20 shadow-md backdrop-blur-md text-white w-full;
+  }
+  .form_input::placeholder {
+    @apply text-gray-300;
+  }
+  .form_btn {
+    width: 100%;
+  }
+  
+  .welcome_title {
+    @apply text-white;
+    font-family: "mochiy";
+  }
+  .header_title {
+    font-family: "mochiy";
+    font-weight: bold;
+    @apply text-white text-4xl my-5;
+  }
+  .span {
+    color: #5983fc;
+  }
+  
